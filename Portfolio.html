@@ -213,35 +213,6 @@
             }
         });
     </script>
-    <script>
-    // Mobile menu toggle - Add this FIRST
-    document.addEventListener('DOMContentLoaded', function() {
-        var togglebtn = document.querySelector(".togglebtn");
-        var nav = document.querySelector(".navlinks");
-        
-        if (togglebtn) {
-            togglebtn.addEventListener("click", function(){
-                this.classList.toggle("click");
-                nav.classList.toggle("open");
-            });
-            
-            // Close menu when clicking a link (mobile)
-            document.querySelectorAll('.navlinks a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 930) {
-                        togglebtn.classList.remove("click");
-                        nav.classList.remove("open");
-                    }
-                });
-            });
-        }
-    });
-
-    // Keep your existing IntersectionObserver code below
-    document.addEventListener('DOMContentLoaded', function() {
-        const projectItems = document.querySelectorAll('.project-item');
-        // ... rest of your existing code ...
-    });
 </script>
 </body>
 </html>
