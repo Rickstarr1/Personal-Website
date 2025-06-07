@@ -591,6 +591,74 @@ nav .navlinks li a{
     animation: fadeInUp 0.8s ease forwards 0.5s;
 }
 /* Projects Page Styles */
+/* Video Container Base Styles */
+.video-container, .shorts-container {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    border: 15px solid #444;
+    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  
+  /* Standard 16:9 Videos */
+  .video-container {
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+  }
+  
+  /* Vertical Shorts Videos */
+  .shorts-container {
+    width: 100%;
+    aspect-ratio: 9/16;
+    max-width: 400px;
+  }
+  
+  /* Iframe Styles */
+  .video-container iframe, 
+  .shorts-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  /* Mobile/Skinny Window Adjustments */
+  @media (max-width: 768px) {
+    /* Force full width on mobile */
+    .project-item .project-image {
+      max-width: 100% !important;
+      flex: none !important;
+    }
+    
+    /* Adjust video containers */
+    .video-container, 
+    .shorts-container {
+      max-width: 100% !important;
+      margin: 15px 0;
+    }
+    
+    /* Slightly thinner borders on mobile */
+    .video-container, 
+    .shorts-container {
+      border-width: 10px;
+    }
+    
+    /* Fix for potential parent container issues */
+    .project-image {
+      width: 100%;
+    }
+  }
+  
+  /* Extra Small Devices */
+  @media (max-width: 480px) {
+    .video-container, 
+    .shorts-container {
+      border-width: 8px;
+    }
+  }
 .projects-container {
     padding: 50px 0;
     color: #e5e5e5;
@@ -679,71 +747,12 @@ nav .navlinks li a{
         margin-bottom: 20px;
     }
 }
-/* Add this to your existing CSS */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    border: 15px solid #444;
-    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
-    background: #000;
-}
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 
 /* Keep your existing .project-image styles */
 .project-image {
     flex: 1;
     max-width: 50%;
 }
-.shorts-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px; /* Increased from 315px */
-    aspect-ratio: 9/16; /* Vertical phone ratio */
-    border: 15px solid #444;
-    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
-    background: #000;
-    margin: 0 auto;
-}
 
-.shorts-container iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-@media (max-width: 768px) {
-    .shorts-container {
-        max-width: 300px; /* Slightly smaller on mobile */
-    }
-}
-/* Vertical Shorts Video Container */
-.shorts-container {
-    position: relative;
-    width: 100%;
-    max-width: 350px;
-    aspect-ratio: 9/16;
-    border: 15px solid #444;
-    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
-    background: #000;
-    margin: 0 auto;
-}
-
-.shorts-container iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
 
