@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Nieto Gonzalez - Awards</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const awardItems = document.querySelectorAll('.award-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            awardItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <div class="eng-circle">ENG</div>
+                    <div class="logo-text">Eric Nieto Gonzalez</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Portfolio.html">Portfolio</a></li>
+                        <li><a href="awards.html" class="active">Awards</a></li>
+                        <li><a href="Trainings.html">Trainings</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <div class="awards-container">
+                <div class="skills-description">
+                    <p>The following instruments represent a curated selection of advanced 
+                        technological systems that I have been formally trained to operate 
+                        and have utilized extensively throughout my engineering career. Each 
+                        tool has played a pivotal role in my hands-on research, enabling precise 
+                        experimentation, data acquisition, and innovation in semiconductor 
+                        development, materials characterization, and nanoscale fabrication. 
+                        My proficiency with these instruments underscores my technical versatility 
+                        and commitment to cutting-edge engineering methodologies.</p>
+                </div>
+
+                <div class="awards-container">
+                    <!-- Award 1 -->
+                    <div class="award-item">
+                        <div class="award-text">
+                            <h2>SEM FEI NNL650</h2>
+                            <p>A high-resolution scanning electron microscope capable of sub-nanometer imaging. Features advanced detectors for material analysis and semiconductor defect inspection.</p>
+                            <span class="award-year">Trained at SNL & U of I</span>
+                        </div>
+                        <div class="award-image">
+                            <img src="images/sem.jpg" alt="SEM FEI NNL650">
+                        </div>
+                    </div>
+                    
+                    <!-- Award 2 -->
+                    <div class="award-item">
+                        <div class="award-image">
+                            <img src="images/EVA.png" alt="Temescal FCS2000">
+                        </div>
+                        <div class="award-text">
+                            <h2>Temescal FCS2000</h2>
+                            <p>Advanced e-beam evaporation system with precise thickness control. Ideal for depositing uniform metal films in cleanroom environments.</p>
+                            <span class="award-year">Trained at SNL</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 3 -->
+                    <div class="award-item">
+                        <div class="award-text">
+                            <h2>VHX Keyence Digital Microscope</h2>
+                            <p>4K digital microscope with advanced depth composition technology. Enables real-time observation and measurement of complex surfaces.</p>
+                            <span class="award-year">Trained at SNL & U of I</span>
+                        </div>
+                        <div class="award-image">
+                            <img src="images/KEY.png" alt="Keyence Digital Microscope">
+                        </div>
+                    </div>
+                
+                    <!-- Award 4 -->
+                    <div class="award-item">
+                        <div class="award-image">
+                            <img src="images/QX.jpg" alt="Nanoscribe Quantum X">
+                        </div>
+                        <div class="award-text">
+                            <h2>Nanoscribe Quantum X</h2>
+                            <p>High-resolution 3D lithography system for microfabrication. Produces complex structures with 200 nm resolution for research and prototyping.</p>
+                            <span class="award-year">Trained at SNL</span>
+                        </div>
+                    </div>
+                
+                    <!-- Award 5 -->
+                    <div class="award-item">
+                        <div class="award-text">
+                            <h2>Leica EM ACE600</h2>
+                            <p>High-performance sputter coater with plasma cleaning capabilities. Ensures artifact-free sample preparation for electron microscopy.</p>
+                            <span class="award-year">Trained at SNL</span>
+                        </div>
+                        <div class="award-image">
+                            <img src="images/SPU.png" alt="Leica EM ACE600">
+                        </div>
+                    </div>
+                
+                    <!-- Award 6 -->
+                    <div class="award-item">
+                        <div class="award-image">
+                            <img src="images/PTS.webp" alt="Probe Testing Station">
+                        </div>
+                        <div class="award-text">
+                            <h2>Probe Testing Station</h2>
+                            <p>Automated prober with micron-level positioning accuracy. Integrates with parameter analyzers for comprehensive device characterization.</p>
+                            <span class="award-year">Trained at SNL & U of I</span>
+                        </div>
+                    </div>
+                </div>
+
+    <!-- JavaScript to flip image/text positions alternately -->
+    <script>
+        const awards = document.querySelectorAll('.award-item');
+        awards.forEach((item, index) => {
+            if (index % 2 === 0) {
+                item.classList.add('left-text');
+            } else {
+                item.classList.add('right-text');
+            }
+        });
+    </script>
+</body>
+</html>

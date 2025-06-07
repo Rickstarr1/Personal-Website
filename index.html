@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        /* Add this style to ensure the footer is black */
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+     <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <div class="eng-circle">ENG</div>
+                    <div class="logo-text">Eric Nieto Gonzalez</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Portfolio.html">Portfolio</a></li>
+                        <li><a href="awards.html">Awards</a></li>
+                        <li><a href="Trainings.html">Trainings</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                 <div class="hero-pic">
+                    <img src="images/ENG.jpg" alt="profile pic">
+                 </div>
+                 <div class="hero-text">
+                    <h5>Hi, I specialize in <span class="input">Electrical Engineering</span></h5>
+                    <h1>Eric Nieto Gonzalez</h1>
+                    <p> I am an Electrical Engineer passionate about nanoscale device 
+                        fabrication and advanced semiconductor technologies. My expertise lies in cleanroom 
+                        processes, including photolithography, etching, and diffusion, for developing high-performance
+                         MOS transistors and diodes. As a scholar with hands-on experience in multiple fields,  
+                         I bridge theory and fabrication to push the boundaries of semiconductor innovation.  
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="GraduateResumePlaceholder.pdf" class="btn" target="_blank" rel="noopener noreferrer">View Resume</a>
+                        <a href="CoverLetterPlaceholder.pdf" class="btn" target="_blank" rel="noopener noreferrer">View CV</a>
+                     </div>
+                     
+
+                     <div class="social">
+                        <a href="https://www.linkedin.com/in/ericnietogonzalez" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/Rickstarr1/TheEngineer" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+     </div>
+     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+     <script>
+        function triggerAnimations() {
+            // Remove any existing animation classes first
+            const elements = document.querySelectorAll('.hero-pic, .hero-text > *');
+            elements.forEach(el => el.classList.remove('animate-in'));
+            
+            // Force reflow to reset animations
+            void document.body.offsetWidth;
+            
+            // Add animation classes with slight delay
+            setTimeout(() => {
+                document.querySelector('.hero-pic').classList.add('animate-in');
+                document.querySelector('.hero-text h5').classList.add('animate-in');
+                document.querySelector('.hero-text h1').classList.add('animate-in');
+                document.querySelector('.hero-text p').classList.add('animate-in');
+                document.querySelector('.btn-group').classList.add('animate-in');
+                document.querySelector('.social').classList.add('animate-in');
+            }, 50);
+        }
+        
+        // Run on initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            triggerAnimations();
+            
+            // Navbar toggle
+            var togglebtn = document.querySelector(".togglebtn");
+            var nav = document.querySelector(".navlinks");
+            togglebtn.addEventListener("click", function(){
+                this.classList.toggle("click");
+                nav.classList.toggle("open");
+            });
+
+            // Typed.js with delayed start
+            var typed = new Typed(".input", {
+                strings: ["Electrical Engineer", "Spanish", "Semiconductor Devices", "FPGA Design"],
+                typedSpeed: 70,
+                backSpeed: 55,
+                loop: true,
+                startDelay: 900 // Match animation timing
+            });
+        });
+        
+        // Re-run animations when page is shown again (like when navigating back)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                triggerAnimations();
+            }
+        });
+        function openLightbox(imgElement) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxDesc = document.getElementById("lightbox-desc");
+
+    lightboxImg.src = imgElement.src;
+    lightboxDesc.innerText = imgElement.getAttribute("data-desc");
+
+    lightbox.classList.add("active");
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("active");
+}
+
+     </script>
+
+     
+<div class="photo-collage">
+    <img src="images/img6.jpeg" onclick="openLightbox(this)" data-desc="Infront of the ECEB Department at U of I">
+    <img src="images/img4.jpeg" onclick="openLightbox(this)" data-desc="Knights of St. Patrick Award with the ARISE Program">
+    <img src="images/img2.heic" onclick="openLightbox(this)" data-desc="Suited up inside a cleanroom">
+    <img src="images/img5.jpg" onclick="openLightbox(this)" data-desc="Award ceremony for ILLCF Scholarship">
+    <img src="images/img9.jpg" onclick="openLightbox(this)" data-desc="Presenting my research at U of I">
+    <img src="images/img7.jpg" onclick="openLightbox(this)" data-desc="Graduation photo">
+    <img src="images/img3.png" onclick="openLightbox(this)" data-desc="Graduation photo with Grainger Library">
+    <img src="images/img11.jpg" onclick="openLightbox(this)" data-desc="Gradaution photo with Grainger Bob">
+    <img src="images/img10.jpg" onclick="openLightbox(this)" data-desc="Graduation photo without cap & gown">
+    <img src="images/img1.heic" onclick="openLightbox(this)" data-desc="Inside a cleanroom using a probe testing station">
+</div>
+
+<!-- Lightbox Overlay -->
+<div id="lightbox" class="lightbox">
+    <span onclick="closeLightbox()" class="close">&times;</span>
+    <img id="lightbox-img">
+    <p id="lightbox-desc"></p>
+</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Nieto Gonzalez - Awards</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const awardItems = document.querySelectorAll('.award-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            awardItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <div class="eng-circle">ENG</div>
+                    <div class="logo-text">Eric Nieto Gonzalez</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Portfolio.html">Portfolio</a></li>
+                        <li><a href="awards.html" class="active">Awards</a></li>
+                        <li><a href="Trainings.html">Trainings</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <div class="awards-container">
+                
+                <!-- Award 1 -->
+                <div class="award-item">
+                    <div class="award-text">
+                        <h2>UIUC Knights of St. Patrick</h2>
+                        <p>This prestigious award represents the highest honor bestowed upon undergraduate engineers at the University of Illinois Urbana-Champaign. Only ten students are selected annually from the entire Grainger College of Engineering based on their exceptional academic achievements and transformative leadership.</p>
+
+                        <p>I was humbled to receive this recognition for mentoring underrepresented engineering students through ARISE and SHPE, leading semiconductor research initiatives while maintaining academic excellence, and developing support systems for underclassmen in MEP and IEEE.</p>
+                    
+                        <p>The Knights of St. Patrick honor reflects my core belief that engineering leadership means advancing both technology and the people who create it—a principle I'll continue applying throughout my career in nanoscale device development.</p>
+                        
+                        <span class="award-year">2025</span>
+                    </div>
+                    <div class="award-image">
+                        <img src="images/KSP.jpg" alt="Knights of St. Patrick">
+                    </div>
+                </div>
+                
+                <!-- Award 2 -->
+                <div class="award-item">
+                    <div class="award-image">
+                        <img src="images/ILLCF.jpg" alt="ILLCF Scholarship">
+                    </div>
+                    <div class="award-text">
+                        <h2>ILLCF Scholarship Recipient</h2>
+                        <p>The Illinois Legislative Latino Caucus Foundation Scholarship embodies a profound 
+                            commitment to cultivating latino excellence in academia. By supporting minority 
+                            students like myself, ILLCF actively supports cultural representation in STEM 
+                            fields where hispanics remain underrepresented.</p>
+                        <span class="award-year">2024</span>
+                    </div>
+                </div>
+                
+                <!-- Award 3 -->
+                <div class="award-item">
+                    <div class="award-text">
+                        <h2>HRP Scholarship Recipient</h2>
+                        <p>The HRP Group's Exchange 55 initiative represents a transformative commitment to 
+                            Chicago's Southside, providing scholarships and workforce development to cultivate 
+                            homegrown talent. This investment exemplifies HRP's powerful model: equipping community 
+                            members with resources, then empowering us to uplift our own neighborhoods through STEM education.</p>
+                        <span class="award-year">2024</span>
+                    </div>
+                    <div class="award-image">
+                        <img src="images/HRP.jpeg" alt="HRP Scholarship">
+                    </div>
+                </div>
+
+
+                <!-- Award 4-->
+                <div class="award-item">
+                    <div class="award-image">
+                        <img src="images/HSF.jpeg" alt="Hispanic Scholarship Fund">
+                    </div>
+                    <div class="award-text">
+                        <h2>Hispanic Scholarship Fund Recipient</h2>
+                        <p>The Hispanic Scholarship Fund represents one of the most prestigious national awards for Latino students pursuing higher education. As an HSF Scholar, I joined an elite network of high-achieving students selected from over 100,000 applicants nationwide.</p>
+                        
+                        <p>This recognition not only provided financial support but also connected me with professional development opportunities, mentorship programs, and access to Fortune 500 companies seeking diverse STEM talent. The HSF community has been instrumental in developing my professional network and leadership skills.</p>
+                        
+                        <span class="award-year">2023</span>
+                    </div>
+                </div>
+
+
+
+                
+                <!-- Award 5 -->
+                <div class="award-item">
+                    <div class="award-text">
+                        <h2>Wentcher Scholarship Recipient</h2>
+                        <p>This is a transformative award that recognizes exceptional students who demonstrate 
+                            both academic excellence and leadership potential. Valued at $40,000 over four 
+                            consecutive years, this prestigious program represents a profound investment in 
+                            the future of underrepresented scholars in STEM. As a recipient, I'm honored to 
+                            be part of this initiative that has enabled me to pursue my academic endeavors.</p>
+                        <span class="award-year">2020</span>
+                    </div>
+                    <div class="award-image">
+                        <img src="images/WF.jpg" alt="Wentcher Scholarship">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to flip image/text positions alternately -->
+    <script>
+        const awards = document.querySelectorAll('.award-item');
+        awards.forEach((item, index) => {
+            if (index % 2 === 0) {
+                item.classList.add('left-text');
+            } else {
+                item.classList.add('right-text');
+            }
+        });
+    </script>
+</body>
+</html>

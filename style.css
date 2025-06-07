@@ -1,0 +1,762 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: poppins,sans-serif;
+    text-decoration: none;
+}
+body{
+    overflow-x: hidden;
+    background: #222; /* Added to ensure entire body has black background */
+}
+.hero-header{
+    width:100%;
+    height: 100%;
+    min-height: 100vh;
+    background: #222;
+}
+.wrapper{
+    width:1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+header{
+    padding: 40px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo i{
+    height: 45px;
+    width:45px;
+    background-color: #007ced;
+    border-radius: 50%;
+    color:#fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-align: center;
+    
+}
+.logo .logo-text{
+    font-size: 24px;
+    font-weight: 500;
+    color:#fff;
+}
+nav .togglebtn{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top:45px;
+    right: 3%;
+    z-index: 5;
+    cursor: pointer;
+    display: none;
+}
+nav .togglebtn span{
+    display: block;
+    background-color: #007ced;
+    margin: 5px 0px;
+    width:100%;
+    height:3px;
+    transition: 0.3s;
+    transition-property:  transform, opacity;
+
+}
+nav .navlinks{
+    list-style-type: none;
+}
+nav .navlinks li{
+    display: inline-block;
+}
+nav .navlinks li a{
+     color:#e5e5e5;
+     margin-right: 2.5rem;
+}
+        /* Add this to your existing CSS */
+        nav .navlinks li a {
+            color: #e5e5e5;
+            margin-right: 2.5rem;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        
+        nav .navlinks li a:hover {
+            color: #007ced !important; /* Your blue accent color */
+        }
+        
+        /* For mobile menu (if you want hover effect there too) */
+        @media(max-width:930px) {
+            nav .navlinks.open li a:hover {
+                color: #007ced !important;
+            }
+        }
+
+/* ENG initials styling */
+.fa-e {
+    position: relative;
+    font-size: 1.2rem; /* Slightly smaller E */
+    padding: 10px 10px 10px 12px; /* Adjust padding */
+}
+.eng-initials {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 0.9rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-40%, -50%);
+    pointer-events: none;
+}
+.eng-circle {
+    height: 45px;
+    width: 45px;
+    background-color: #007ced;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top:4rem;
+}
+.container .hero-pic{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 15px solid #444;
+    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+}
+.hero-pic img{
+    height: 100%;
+    width:100%;
+    transition: 0.5s;
+}
+.hero-pic img:hover{
+    transform: scale(1.2);
+}
+.hero-text{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.hero-text h5{
+    color:#e5e5e5;
+    font-size: 14px;
+}
+.hero-text h5 span{
+    color:#007ced;
+    font-size: 16px;
+}
+.hero-text h1{
+    color: #007ced;
+    font-size: 3rem;
+}
+.hero-text p {
+    color: #e5e5e5;
+    text-align: justify;
+    text-align-last: left;
+    word-spacing: -0.1em; /* Slightly tighter word spacing */
+    margin: 0;
+    padding: 0;
+    /* Prevent word breaks */
+    word-break: keep-all;
+    overflow-wrap: normal;
+    hyphens: manual;
+}
+.btn-group {
+    margin: 45px 0;
+}
+
+.btn-group .btn {
+    border-color: #d5d5d5;
+    color: #fff;
+    background-color: #333;
+    padding: 12px 25px;
+    margin: 5px 0;
+    margin-right: 7px;
+    border-radius: 30px;
+    border: 2px solid #e5e5e5;
+    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.78);
+    transition: all 0.3s ease; /* Smooth transition for hover */
+    cursor: pointer;
+}
+
+/* Active state */
+.btn-group .btn.active {
+    border-color: #007ced;
+    background-color: #007ced;
+}
+
+/* Hover state (matches active) */
+.btn-group .btn:hover {
+    border-color: #007ced;
+    background-color: #007ced;
+}
+.hero-text .social i{
+    color: #e5e5e5;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+.hero-text .social i:hover{
+    color:#007ced;
+    transform: rotate(360deg);
+}
+/* Respnosiv design & displaying navbar for small screen */
+@media(max-width:930px)
+{
+    nav .togglebtn{
+        display: initial;
+    }
+    /* for toggle button**/
+    .click {
+        top:45px;
+    }
+    .click span{
+        position: absolute;
+        margin-top:12px
+    }
+    .click span:first-child{
+        transform: rotate(-40deg);
+    }
+    .click span:nth-child(2)
+    {
+        opacity: 0;
+        margin:0;
+    }
+    .click span:last-child{
+        transform: rotate(45deg);
+        top:0;
+    }
+    nav .navlinks{
+        position: absolute;
+        top:110px;
+        right:-100%;
+        bottom: 0;
+        width: 60%;
+        height: 100vh;
+        background-color: #222;
+        z-index: 3;
+        box-shadow: 5px 13px 30px rgba(0,0,0,0.1);
+        transition: 0.5s;
+        padding: 25px 0px;
+    }
+    nav .navlinks li{
+        display: block;
+    }
+    nav .navlinks li a{
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    nav .navlinks.open{
+        right:0;
+    }
+}
+@media(max-width:768px)
+{
+    .container{
+        flex-direction: column;
+        padding-top:2rem
+    }
+    .hero-text{
+        padding:40px 0px;
+    }
+}
+.photo-collage {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 8px;
+    padding: 0;
+    background-color: #222;
+    width: 100vw;
+    margin: -30px 0 0 0;
+    box-sizing: border-box;
+}
+
+.photo-collage img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    border: 1px solid #444;
+}
+
+/* Target the first and last image to span two rows */
+.photo-collage img:first-child,
+.photo-collage img:nth-child(6) {
+    grid-row: span 2;
+    aspect-ratio: 1 / 2;
+}
+.photo-collage img:nth-child(2) {
+    grid-column: 2 / 4; /* Makes it span columns 2 and 3 */
+    grid-row: span 2; /* Makes it span two rows */
+    aspect-ratio: 2 / 2; /* Adjusts its proportions */
+}
+.photo-collage img:nth-child(4) { 
+    grid-column: 5 / 7; /* Spans across columns 5 and 6 */
+    grid-row: 1; /* Stays in row 1 */
+    aspect-ratio: 2 / 1; /* Adjusts proportions for a wide rectangle */
+}
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 8px;
+}
+
+.lightbox p {
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.lightbox.active {
+    visibility: visible;
+    opacity: 1;
+}
+.photo-collage img {
+    transition: transform 0.3s ease;
+}
+
+.photo-collage img:hover {
+    transform: scale(1.1); /* Slightly enlarges the image */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Awards Page Styles */
+.awards-container {
+    padding: 50px 0;
+    color: #e5e5e5;
+}
+
+.awards-title {
+    text-align: center;
+    color: #007ced;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.award-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    gap: 40px;
+}
+
+.award-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.award-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.award-image img {
+    width: 100%;
+    height: auto;
+    border: 15px solid #444;
+    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+    display: block;
+}
+
+.award-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.award-text h2 {
+    color: #007ced; /* Your blue accent color */
+    margin-bottom: 15px;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+/* Update award text to match homepage paragraph */
+.award-text p {
+    color: #e5e5e5; /* Same light gray color */
+    font-family: 'Poppins', sans-serif; /* Same font family */
+    font-size: 1rem; /* Same base size as homepage */
+    line-height: 1.6; /* Same line spacing */
+    text-align: justify; /* Same justified alignment */
+    text-align-last: left; /* Last line left-aligned */
+    word-spacing: -0.1em; /* Same tight word spacing */
+    margin: 0;
+    padding: 0;
+    /* Word control to match homepage */
+    word-break: keep-all;
+    overflow-wrap: normal;
+    hyphens: manual;
+}
+
+.award-year {
+    display: inline-block;
+    color: #fff;
+    background-color: #007ced;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .award-item, 
+    .award-item.reverse {
+        flex-direction: column;
+    }
+    
+    .award-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Add this animation CSS */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.award-item {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-play-state: paused;
+}
+
+/* Delay each item's animation */
+.award-item:nth-child(1) { animation-delay: 0.1s; }
+.award-item:nth-child(2) { animation-delay: 0.3s; }
+.award-item:nth-child(3) { animation-delay: 0.5s; }
+.award-item:nth-child(4) { animation-delay: 0.7s; }
+
+
+
+/* Initial hidden state */
+.hero-pic,
+.hero-text > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Animation definitions */
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease-out;
+}
+
+/* Specific delays */
+.hero-pic.animate-in {
+    transition-delay: 0.3s;
+}
+.hero-text h5.animate-in {
+    transition-delay: 0.6s;
+}
+.hero-text h1.animate-in {
+    transition-delay: 0.9s;
+}
+.hero-text p.animate-in {
+    transition-delay: 1.2s;
+}
+.btn-group.animate-in {
+    transition-delay: 1.5s;
+}
+.social.animate-in {
+    transition-delay: 1.8s;
+}
+
+/* portfolio */
+/* Logo Marquee Styles */
+.logo-marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background: transparent;
+    padding: 20px 0;
+    position: relative;
+}
+
+.logo-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollLogos 20s linear infinite;
+}
+
+.logo-item {
+    display: inline-block;
+    margin: 0 40px;
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+/* Specific style for SolidWorks logo only */
+.logo-item[alt="SolidWorks"] {
+    height: 120px;
+    margin: 0 20px; /* Slightly less margin to compensate for larger size */
+    position: relative;
+    top: 40px;
+}
+
+.logo-item:hover {
+    transform: scale(1.2);
+}
+
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.skills-description {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.skills-description p {
+    color: #e5e5e5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-align-last: left;
+    word-spacing: -0.1em;
+    margin: 0;
+    padding: 0;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    hyphens: manual;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 0.5s;
+}
+/* Projects Page Styles */
+.projects-container {
+    padding: 50px 0;
+    color: #e5e5e5;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    gap: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-play-state: paused;
+}
+
+.project-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    border: 15px solid #444;
+    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+    display: block;
+}
+
+.project-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.project-text h2 {
+    color: #007ced;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.project-text p {
+    color: #e5e5e5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-align-last: left;
+    word-spacing: -0.1em;
+    margin: 0;
+    padding: 0;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    hyphens: manual;
+}
+
+.project-year {
+    display: inline-block;
+    color: #fff;
+    background-color: #007ced;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+/* Delay each item's animation */
+.project-item:nth-child(1) { animation-delay: 0.1s; }
+.project-item:nth-child(2) { animation-delay: 0.3s; }
+.project-item:nth-child(3) { animation-delay: 0.5s; }
+.project-item:nth-child(4) { animation-delay: 0.7s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-item, 
+    .project-item.reverse {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+/* Add this to your existing CSS */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border: 15px solid #444;
+    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Keep your existing .project-image styles */
+.project-image {
+    flex: 1;
+    max-width: 50%;
+}
+.shorts-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Increased from 315px */
+    aspect-ratio: 9/16; /* Vertical phone ratio */
+    border: 15px solid #444;
+    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+    background: #000;
+    margin: 0 auto;
+}
+
+.shorts-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .shorts-container {
+        max-width: 300px; /* Slightly smaller on mobile */
+    }
+}
+/* Vertical Shorts Video Container */
+.shorts-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 9/16;
+    border: 15px solid #444;
+    box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+    background: #000;
+    margin: 0 auto;
+}
+
+.shorts-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .shorts-container {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .shorts-container {
+        max-width: 100%;
+        aspect-ratio: 9/14;
+    }
+}
