@@ -747,16 +747,3 @@ nav .navlinks li a{
     left: 0;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 900px) {
-    .shorts-container {
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    .shorts-container {
-        max-width: 100%;
-        aspect-ratio: 9/14;
-    }
-}
