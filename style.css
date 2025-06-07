@@ -760,3 +760,21 @@ nav .navlinks li a{
         aspect-ratio: 9/14;
     }
 }
+/* Responsive video containers */
+.video-container, .shorts-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.video-container iframe, 
+.shorts-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
