@@ -212,6 +212,28 @@
                 item.classList.add('right-text');
             }
         });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const toggleBtn = document.querySelector('.togglebtn');
+            const navLinks = document.querySelector('.navlinks');
+            
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener('click', function() {
+                    this.classList.toggle('click');
+                    navLinks.classList.toggle('open');
+                });
+                
+                // Close menu when clicking a link on mobile
+                document.querySelectorAll('.navlinks a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth <= 930) {
+                            toggleBtn.classList.remove('click');
+                            navLinks.classList.remove('open');
+                        }
+                    });
+                });
+            }
+        });
     </script>
 </script>
 </body>
