@@ -319,6 +319,7 @@ nav .navlinks li a{
     grid-row: 1; /* Stays in row 1 */
     aspect-ratio: 2 / 1; /* Adjusts proportions for a wide rectangle */
 }
+
 .lightbox {
     position: fixed;
     top: 0;
@@ -360,12 +361,40 @@ nav .navlinks li a{
     visibility: visible;
     opacity: 1;
 }
+
 .photo-collage img {
     transition: transform 0.3s ease;
 }
 
 .photo-collage img:hover {
     transform: scale(1.1); /* Slightly enlarges the image */
+}
+.lightbox .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    user-select: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    z-index: 1001;
+}
+
+.lightbox .nav:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox .prev {
+    left: 20px;
+}
+
+.lightbox .next {
+    right: 20px;
 }
 
 
