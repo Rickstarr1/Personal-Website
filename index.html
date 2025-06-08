@@ -79,6 +79,7 @@
      
      <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
      <script>
+        
         function triggerAnimations() {
             // Remove any existing animation classes first
             const elements = document.querySelectorAll('.hero-pic, .hero-text > *');
@@ -126,27 +127,69 @@
                 triggerAnimations();
             }
         });
-        function openLightbox(imgElement) {
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxDesc = document.getElementById("lightbox-desc");
+        document.addEventListener('DOMContentLoaded', function () {
+    const thumbs = document.querySelectorAll('.photo-collage img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxDesc = document.getElementById('lightbox-desc');
 
-    lightboxImg.src = imgElement.src;
-    lightboxDesc.innerText = imgElement.getAttribute("data-desc");
+    const closeBtn = document.querySelector('.lightbox .close');
+    const prevBtn = document.querySelector('.lightbox .prev');
+    const nextBtn = document.querySelector('.lightbox .next');
 
-    lightbox.classList.add("active");
-}
+    let currentIndex = 0;
 
-function closeLightbox() {
-    document.getElementById("lightbox").classList.remove("active");
-}
+    function openLightbox(imgElement) {
+        currentIndex = Array.from(thumbs).indexOf(imgElement);
+        updateLightbox();
+        lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+    }
+
+    function updateLightbox() {
+        const img = thumbs[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxDesc.textContent = img.getAttribute('data-desc');
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % thumbs.length;
+        updateLightbox();
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + thumbs.length) % thumbs.length;
+        updateLightbox();
+    }
+
+    // Attach mouse click events to nav buttons
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Make openLightbox available in HTML onclick attributes
+    window.openLightbox = openLightbox;
+});
+
+
 
      </script>
 
      
 <div class="photo-collage">
     <img src="images/img6.jpeg" onclick="openLightbox(this)" data-desc="Infront of the ECEB Department at U of I">
-    <img src="images/img4.png" onclick="openLightbox(this)" data-desc="Knights of St. Patrick Award with the ARISE Program">
+    <img src="images/img4.jpeg" onclick="openLightbox(this)" data-desc="Knights of St. Patrick Award with the ARISE Program">
     <img src="images/img2.png" onclick="openLightbox(this)" data-desc="Suited up inside a cleanroom">
     <img src="images/img5.jpg" onclick="openLightbox(this)" data-desc="Award ceremony for ILLCF Scholarship">
     <img src="images/img9.jpg" onclick="openLightbox(this)" data-desc="Presenting my research at U of I">
@@ -154,12 +197,14 @@ function closeLightbox() {
     <img src="images/img3.png" onclick="openLightbox(this)" data-desc="Graduation photo with Grainger Library">
     <img src="images/img11.jpg" onclick="openLightbox(this)" data-desc="Gradaution photo with Grainger Bob">
     <img src="images/img10.jpg" onclick="openLightbox(this)" data-desc="Graduation photo without cap & gown">
-    <img src="images/img1.heic" onclick="openLightbox(this)" data-desc="Inside a cleanroom using a probe testing station">
+    <img src="images/img1.png" onclick="openLightbox(this)" data-desc="Inside a cleanroom using a probe testing station">
 </div>
 
 <!-- Lightbox Overlay -->
 <div id="lightbox" class="lightbox">
     <span onclick="closeLightbox()" class="close">&times;</span>
+    <span class="nav prev" onclick="showPrev()">&lsaquo;</span>  <!-- ‹  -->
+    <span class="nav next" onclick="showNext()">&rsaquo;</span>   <!-- ›  -->
     <img id="lightbox-img">
     <p id="lightbox-desc"></p>
 </div>
